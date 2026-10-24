@@ -291,7 +291,9 @@
   /* ---------- hero: the tattoo film plays once when it is in view, a tap plays it again ---------- */
   const film = document.querySelector('[data-film] video');
   if (film && !rm) {
-    const play = () => { film.play().catch(() => {}); };
+    // when the browser blocks autoplay (low power mode), show the finished tattoo instead of the first dark frame
+    const still = () => { if (film.readyState >= 1) film.currentTime = film.duration; else film.addEventListener('loadedmetadata', still, { once: true }); };
+    const play = () => { film.play().catch(still); };
     let played = false;
     new IntersectionObserver((es) => {
       es.forEach((e) => { if (e.isIntersecting && !played) { played = true; play(); } });
