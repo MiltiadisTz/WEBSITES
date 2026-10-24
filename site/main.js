@@ -241,6 +241,7 @@
     const dpr = Math.min(devicePixelRatio || 1, 2);
     walkCanvas.width = Math.round(walkCanvas.clientWidth * dpr);
     walkCanvas.height = Math.round(walkCanvas.clientHeight * dpr);
+    walkCtx.imageSmoothingQuality = 'high';
     walkLast = -1;
   };
   const drawWalk = (i) => {
