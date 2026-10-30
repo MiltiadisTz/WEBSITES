@@ -1,0 +1,62 @@
+/* Tzes Tattoo v3 "Ink HUD": tokens */
+@font-face { font-family: "TZ Flex"; src: url("../fonts/tz-flex-latin.woff2") format("woff2"); font-weight: 300 1000; font-stretch: 100% 151%; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2190-2199, U+2212, U+2215; }
+@font-face { font-family: "TZ Flex"; src: url("../fonts/tz-flex-greek.woff2") format("woff2"); font-weight: 300 1000; font-stretch: 100% 151%; font-display: swap; unicode-range: U+0370-03FF, U+1F00-1FFF; }
+@font-face { font-family: "TZ Mono"; src: url("../fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2"); font-weight: 100 800; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2190-2199; }
+@font-face { font-family: "TZ Mono"; src: url("../fonts/jetbrains-mono-greek-wght-normal.woff2") format("woff2"); font-weight: 100 800; font-display: swap; unicode-range: U+0370-03FF, U+1F00-1FFF; }
+
+:root {
+  /* colour */
+  --tz-paper: #050505;
+  --tz-paper-2: #110f0f;
+  --tz-paper-line: #2c2727;
+  --tz-ink: #0e0c0c;
+  --tz-ink-2: #151212;
+  --tz-ink-3: #1f1a1a;
+  --tz-ink-line: #2f2828;
+  --tz-fg: #ece6df;
+  --tz-bone: #ece6df;
+  --tz-bone-soft: #9d948c;
+  --tz-text-soft: #8f8780;
+  --tz-red: #9f0102;
+  --tz-red-hi: #c8090b;
+  --tz-red-deep: #5e0001;
+  --tz-red-soft: #e3262a;
+  --tz-gradient-red: linear-gradient(135deg, #d10c0d 0%, #9f0102 45%, #5e0001 100%);
+  --tz-gradient-slash: linear-gradient(120deg, #d10c0d 0%, #a30203 55%, #6a0001 100%);
+
+  /* type */
+  --tz-font: "TZ Flex", "Arial Black", system-ui, sans-serif;
+  --tz-mono: "TZ Mono", ui-monospace, "Courier New", monospace;
+  --tz-wide: 151%;
+  --tz-fs-mega: clamp(7rem, 27vw, 30rem);
+  --tz-fs-display: clamp(2.6rem, 6.4vw, 6.6rem);
+  --tz-fs-h2: clamp(2.2rem, 4.6vw, 4.6rem);
+  --tz-fs-h3: clamp(1.15rem, 1.4vw, 1.35rem);
+  --tz-fs-lead: clamp(1.05rem, 1.2vw, 1.2rem);
+  --tz-fs-body: 1rem;
+  --tz-fs-small: 0.9375rem;
+  --tz-fs-tag: 0.75rem;
+
+  /* shape */
+  --tz-cut: 18px;
+  --tz-cut-lg: 34px;
+  --tz-radius-pill: 999px;
+  --tz-gutter: clamp(1rem, 4vw, 3.5rem);
+  --tz-max: 1320px;
+  --tz-bar-h: 76px;
+  --tz-strip-h: 28px;
+  --tz-header-h: calc(var(--tz-bar-h) + var(--tz-strip-h));
+  --tz-plate-w: 72px;
+  --tz-plate-drop: 38px;
+
+  /* motion */
+  --tz-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --tz-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --tz-fast: 220ms;
+  --tz-mid: 480ms;
+  --tz-slow: 900ms;
+}
+
+@media (max-width: 767px) {
+  :root { --tz-cut: 14px; --tz-cut-lg: 22px; --tz-bar-h: 64px; --tz-strip-h: 26px; --tz-plate-w: 50px; --tz-plate-drop: 22px; --tz-fs-body: 1.0625rem; }
+}
