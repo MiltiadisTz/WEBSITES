@@ -251,9 +251,13 @@
     if (k < 0) return false;
     const img = walkFrames[k];
     const cw = walkCanvas.width, ch = walkCanvas.height;
-    const s = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
+    // the frame sits below the header; its top rows are stretched up behind the header
+    const top = Math.min(ch * 0.3, (parseFloat(getComputedStyle(walkCanvas).scrollMarginTop) || 0) * (walkCanvas.width / walkCanvas.clientWidth));
+    const s = Math.max(cw / img.naturalWidth, (ch - top) / img.naturalHeight);
     const w = img.naturalWidth * s, h = img.naturalHeight * s;
-    walkCtx.drawImage(img, (cw - w) / 2, (ch - h) / 2, w, h);
+    const y = top + (ch - top - h) / 2;
+    walkCtx.drawImage(img, (cw - w) / 2, y, w, h);
+    if (y > 0) walkCtx.drawImage(img, 0, 0, img.naturalWidth, 6, (cw - w) / 2, 0, w, y + 1);
     return k === i;
   };
 
